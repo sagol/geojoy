@@ -1,0 +1,5 @@
+Значения полей 
+SELECT value FROM obj_fields_values WHERE value LIKE 'NLS_%'
+
+Названия полей
+SELECT title FROM obj_fields WHERE title LIKE 'NLS_%'

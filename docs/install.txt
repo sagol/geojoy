@@ -1,0 +1,70 @@
+логин по умолчанию: admin@geojoy.com
+пароль по умолчанию: freelab
+
+Используемые технологии:
+===========================
+1. Nginx + php-fpm
+2. PHP
+	php-curl
+	php-gd
+3. PostgreSQL
+4. Memcached
+5. Cron
+
+Минимальные требования:
+===========================
+1. PostgreSQL 7.1 (ориентировочно) 
+2. PHP 5.3
+
+Установка:
+===========================
+1. Настроить Nginx для работы сайта с веб директорией /var/www/geojoy.com/html
+2. Создать базу (по умолчанию geojoy) и пользователя (по умолчанию geojoy) в PostgreSQL 
+3. Выполнить импорт файла install.sql и default.sql (не обязательно)
+4. Забрать из git`а последнюю стабильную версию и положить в /var/www/geojoy.com/ (папки html, protected, yiiframework)
+5. В прописать настройки в /var/www/geojoy.com/protected/config/main.php
+	база:
+		connectionString - название базы, по умолчанию geojoy
+		username - пользователь, по умолчанию geojoy
+		password - пароль пользователя
+
+	ключи для соцсетей:
+		twitter key, secret
+		facebook client_id, client_secret
+		vkontakte client_id, client_secret
+		google client_id, client_secret
+
+		так же указать facebookAppId, то же значение что и в client_id соцсети facebook
+
+	почта:
+		FromName - от кого пришел email
+		From - email сайта
+
+	языки сайта:
+		language - язык по умолчанию
+		lang - используемые языки, НЕЛЬЗЯ менять порядок после запуска сайта
+		langOrder - желаемый порядок языков (менять можно)
+
+	папка загрузки:
+		uploadDir - в формате Yii alias, по умолчанию webroot.upload
+		uploadUrl - в формате урла от корня сайта, по умолчанию /upload
+
+6. Проверить права доступа на папки и выставить 757 или другие с правом записи в них веб сервером
+	/var/www/geojoy.com/html/assets
+	/var/www/geojoy.com/html/upload
+	/var/www/geojoy.com/protected/runtime
+
+7. Прописать в крон задачи с оптимальной периодичностью
+	каждые 2 мин:
+		/var/www/geojoy.com/protected/yiic newsshowusers
+	каждые 10 мин:
+		/var/www/geojoy.com/protected/yiic sendmails
+		/var/www/geojoy.com/protected/yiic newstoemailsusers
+	каждые 30 мин:
+		/var/www/geojoy.com/protected/yiic clearcodes
+		/var/www/geojoy.com/protected/yiic clearemails
+		/var/www/geojoy.com/protected/yiic clearfieldstmp
+
+8. Залогиниться под админом и поменять пароль по умолчанию на странице http://geojoy.com/user/password.html
+
+9. Проверить работу сайта, включить кеширование

@@ -1,0 +1,1 @@
+../../default/html/check.php

@@ -1,0 +1,210 @@
+====================================================================== Админка
+
+protected/controllers/admin/object/CategoryController.php
+	actionView
+	actionCreate
+	actionUpdate
+	actionDelete
+	actionIndex
+
+protected/controllers/admin/object/FieldsController.php
+	actionView
+	actionCreate
+	actionUpdate
+	actionDelete
+	actionIndex
+
+protected/controllers/admin/object/FieldsValuesController.php
+	actionView
+	actionCreate
+	actionUpdate
+	actionDelete
+	actionIndex
+	actionGetParentFieldData
+
+protected/controllers/admin/object/ObjectsController.php
+	actionIndex
+	actionSpam
+	actionModerate
+
+protected/controllers/admin/object/TiesController.php
+	actionView
+	actionCreate
+	actionUpdate
+	actionDelete
+	actionIndex
+	actionGetTypeFieldData
+	actionGetFieldsFieldData
+
+protected/controllers/admin/object/TiesGroupsController.php
+	actionView
+	actionCreate
+	actionUpdate
+	actionDelete
+	actionIndex
+
+protected/controllers/admin/object/TypeController.php
+	actionView
+	actionCreate
+	actionUpdate
+	actionDelete
+	actionIndex
+
+protected/controllers/admin/users/KarmaController.php
+	actionView
+	actionApprove
+	actionDeflect
+	actionDelete
+	actionIndex
+
+protected/controllers/admin/users/UsersController.php
+	actionView
+	actionCreate
+	actionUpdate
+	actionDelete
+	actionIndex
+
+protected/controllers/admin/AdminController.php
+	actionIndex
+	actionError
+
+protected/controllers/admin/LogsController.php
+	actionView
+	actionDelete
+	actionIndex
+
+protected/controllers/admin/MessagesController.php
+	actionView
+	actionDelete
+	actionIndex
+
+protected/controllers/admin/NewsController.php
+	actionView
+	actionCreate
+	actionUpdate
+	actionDelete
+	actionIndex
+
+====================================================================== Сайт
+
+Объявления
+protected/controllers/site/ObjectsController.php
+	actionIndexMap			страница всех объявлений на карте
+	actionCategoryMap		страница объявлений категории на карте
+	actionIndex			страница всех объявлений (главная страница сайта)
+	actionCategory			страница объявлений категории
+	actionView			детальная страница объявления
+	actionSelectCategory		выбор категории для создания объявления
+	actionAdd			страница добавления объявления
+	actionEdit			страница редактирования объявления
+	actionDel			страница удаления объявления
+
+	actionSpam			действие: пометить как спам
+	actionToSpam			действие: перенести в спам
+	actionNotSpam			действие: перенести в не спам
+	actionModerateOk		действие: модерация выполнена
+	actionObjectUp			действие: поднять объявление
+	actionGetFieldData		действие: получение ajax данных
+
+Сайт
+protected/controllers/site/SiteController.php
+	actionError			страница ошибки
+	actionSearch			страница поиска
+
+Пользователь
+protected/controllers/site/UserController.php
+	actionLogin			страница входа на сайт
+	actionLogout			действие: пометить как спам
+	actionRegistration		страница регистрации
+	actionSetNewMail		страница входа на сайт
+	actionRegistered		страница регистрации через соцсеть
+	actionActivation		страница активации
+	actionActivationOk		страница успешной активации
+
+	actionObjects			страница объявлений пользователя
+	actionProfile			страница профиля пользователя
+
+	actionEdit			страница редактирования профиля пользователя
+	actionDelete			действие: удаления пользователя
+	actionRecovery
+	actionSendMailActivation	страница повторной активации email`a
+	actionSettings			страница редактирования настроек пользователя
+
+	actionMultiAccount		страница мульти акков
+	actionMultiAccountWithdraw	действие: отсоединение от мульти акка
+	actionMultiAccountOk		страница успешного присоединения мульти акка
+	actionMultiAccountCode		действие: генирация кода
+
+Подписка на объявления пользователя
+protected/controllers/site/BookmarksController.php
+	actionAdd			действие: добавление подписки
+	actionDelete			действие: удаление подписки
+	actionIndex			страница списка подписок
+	actionShow			страница подписки
+
+Аватар
+protected/modules/avatarField/controllers/UploadController.php
+	actionAjax
+	actionDelete
+	actionUploaded
+
+Работа веб камеры
+protected/modules/avatarField/controllers/WebcamController.php
+	actionUpload
+
+Email
+protected/modules/emailField/controllers/ConfirmationController.php
+	actionIndex
+	actionConfirmationOk
+
+Карма
+protected/modules/karmaField/controllers/KarmaController.php
+	actionIndex
+
+Контакты пользователей
+protected/modules/messages/controllers/ContactsController.php
+	actionIndex
+	actionDel
+
+Личные сообщения пользователей
+protected/modules/messages/controllers/MessagesController.php
+	actionMark
+	actionWriter
+	actionWriterContacts
+
+Треды сообщений
+protected/modules/messages/controllers/ThreadsController.php
+	actionIndex
+	actionDel
+	actionThread
+	actionPrint
+
+Новости
+protected/modules/news/controllers/ShowController.php
+	actionIndex
+	actionNews
+
+Редактирование пароля
+protected/modules/passField/controllers/EditController.php
+	actionIndex
+	actionEditOk
+
+Сброс пароля
+protected/modules/passField/controllers/ResetController.php
+	actionIndex
+	actionReset
+	actionResetOk
+
+Загрузка одного изображения
+protected/modules/photoField/controllers/UploadController.php
+	actionAjax
+	actionSetMain
+	actionDelete
+	actionUploaded
+
+Загрузка изображений
+protected/modules/photosField/controllers/UploadController.php
+	actionAjax
+	actionSetMain
+	actionDelete
+	actionUploaded

@@ -1,0 +1,1 @@
+../../default/form/photo.php
