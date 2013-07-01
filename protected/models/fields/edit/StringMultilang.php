@@ -13,6 +13,7 @@ class StringMultilang extends FieldMultiLang {
 	 */
 	public function init() {
 		$this->_type = self::STRING_MULTILANG;
+		$this->setPurifierOptions(__CLASS__);
 
 		parent::init();
 	}

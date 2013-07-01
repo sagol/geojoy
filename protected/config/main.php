@@ -426,5 +426,57 @@ return array(
 			'vkUrl' => 'http://vk.com/',
 			'contactUrl' => 'http://geojoy.com/contacts.html',
 		),
+
+		// параметры полей
+		'fields' => array(
+			/*
+			для всех текстовых полей сразу, включая мультиязычные
+			'fieldLang' => array(
+				// для отключения фильтра 
+				// 'purifierOptions' => false,
+				'purifierOptions' => array(
+					'HTML.Allowed' => 'b,big,blockquote,br,caption,center,cite,code,dd,div,dl,dt,em,font,h1,h2,h3,h4,h5,h6,hr,i,li,ol,p,pre,s,small,strike,strong,sub,sup,table,td,th,tr,tt,u,ul,var',
+				),
+			),*/
+			/*
+			только для всех мультиязычных полей
+			'fieldMultiLang' => array(
+				// для отключения фильтра 'purifierOptions' => false,
+				'purifierOptions' => array(
+					'HTML.Allowed' => 'b,big,blockquote,br,caption,center,cite,code,dd,div,dl,dt,em,font,h1,h2,h3,h4,h5,h6,hr,i,li,ol,p,pre,s,small,strike,strong,sub,sup,table,td,th,tr,tt,u,ul,var',
+				),
+			),*/
+			'stringMultilang' => array(
+				// для отключения фильтра 'purifierOptions' => false,
+				'purifierOptions' => array(
+					'HTML.Allowed' => 'b,big,blockquote,br,caption,center,cite,code,dd,div,dl,dt,em,font,h1,h2,h3,h4,h5,h6,hr,i,li,ol,p,pre,s,small,strike,strong,sub,sup,table,td,th,tr,tt,u,ul,var',
+				),
+			),
+			'textMultilang' => array(
+				// для отключения фильтра 'purifierOptions' => false,
+				'purifierOptions' => array(
+					'HTML.Allowed' => 'b,big,blockquote,br,caption,center,cite,code,dd,div,dl,dt,em,font,h1,h2,h3,h4,h5,h6,hr,i,li,ol,p,pre,s,small,strike,strong,sub,sup,table,td,th,tr,tt,u,ul,var',
+				),
+			),
+			'textMultilangEditor' => array(
+				// для отключения фильтра 'purifierOptions' => false,
+				'purifierOptions' => array(
+					'HTML.Allowed' => 'b,big,blockquote,br,caption,center,cite,code,dd,div,dl,dt,em,font,h1,h2,h3,h4,h5,h6,hr,i,li,ol,p,pre,s,small,strike,strong,sub,sup,table,td,th,tr,tt,u,ul,var',
+				),
+			),
+			'string' => array(
+				// для отключения фильтра 'purifierOptions' => false,
+				'purifierOptions' => array(
+					'HTML.Allowed' => 'b,big,blockquote,br,caption,center,cite,code,dd,div,dl,dt,em,font,h1,h2,h3,h4,h5,h6,hr,i,li,ol,p,pre,s,small,strike,strong,sub,sup,table,td,th,tr,tt,u,ul,var',
+				),
+			),
+			'text' => array(
+				// для отключения фильтра 'purifierOptions' => false,
+				'purifierOptions' => array(
+					'HTML.Allowed' => 'b,big,blockquote,br,caption,center,cite,code,dd,div,dl,dt,em,font,h1,h2,h3,h4,h5,h6,hr,i,li,ol,p,pre,s,small,strike,strong,sub,sup,table,td,th,tr,tt,u,ul,var',
+				),
+			),
+		),
+
 	),
 );

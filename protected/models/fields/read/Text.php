@@ -5,7 +5,7 @@ namespace app\models\fields\read;
 /**
  * Поле текст
  */
-class Text extends Field {
+class Text extends FieldLang {
 
 
 	/**

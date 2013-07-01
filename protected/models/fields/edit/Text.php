@@ -5,7 +5,7 @@ namespace app\models\fields\edit;
 /**
  * Поле текст
  */
-class Text extends Field {
+class Text extends FieldLang {
 
 
 	/**
@@ -13,6 +13,7 @@ class Text extends Field {
 	 */
 	public function init() {
 		$this->_type = self::TEXT;
+		$this->setPurifierOptions(__CLASS__);
 
 		parent::init();
 	}

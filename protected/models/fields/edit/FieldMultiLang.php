@@ -5,7 +5,7 @@ namespace app\models\fields\edit;
 /**
  * Базавое поле мультиязычных полей
  */
-class FieldMultiLang  extends Field {
+class FieldMultiLang  extends FieldLang {
 
 
 	protected $_langs;
@@ -63,6 +63,7 @@ class FieldMultiLang  extends Field {
 		return parent::__set($name, $value);
 	}
 
+
 	/**
 	 * проверяем ввод хотя бы одного языка для обязательных полей
 	 */
@@ -74,6 +75,7 @@ class FieldMultiLang  extends Field {
 			$this->addError($attribute, \Yii::t('nav', 'FIELD_MUST_ONE_LANGUAGE', array('{attribute}' => $this->getAttributeLabel($attribute))));
 		}
 	}
+
 
 	/**
 	 * имитируем обязательным основной язык для обязательных полей
@@ -92,6 +94,7 @@ class FieldMultiLang  extends Field {
 	public function init() {
 		$this->_isFiltered = false;
 		$this->_multiLang = true;
+		$this->setPurifierOptions(__CLASS__);
 
 
 		parent::init();
@@ -117,41 +120,37 @@ class FieldMultiLang  extends Field {
 	}
 
 
-	public function getValue(/*$curLang = null*/) {
-		/*if($curLang === null) $curLang = $this->_curLang;*/
-
-		/* альтернатива мультиязычному
-		return @$this->_value; */
-
-		/* мультиязычный вариант */
+	public function getValue() {
 		return $this->_lang[$this->_curLang];
-		
 	}
 
 
-	public function setValue($value/*, $curLang = null*/) {
+	public function setValue($value) {
+		if($this->purifierOptions !== false) {
+			$htmlPurifier = new \CHtmlPurifier();
+			$htmlPurifier->options = $this->purifierOptions;
+		}
+
 		if(is_array($value)) {
 			foreach($this->_langs as $lang)
-				if(isset($value[$lang]))$this->_lang[$lang] = $value[$lang];
-
-			/*$this->_value = $this->_lang[$this->_curLang];*/
+				if(isset($value[$lang])) {
+					if($this->purifierOptions !== false)
+						$this->_lang[$lang] = $htmlPurifier->purify($value[$lang]);
+					else
+						$this->_lang[$lang] = $value[$lang];
+				}
 		}
 		else {
-			/*$this->_value = $value;*/
-			$this->_lang[$this->_curLang] = $value;
+			if($this->purifierOptions !== false)
+				$this->_lang[$this->_curLang] = $htmlPurifier->purify($value);
+			else
+				$this->_lang[$this->_curLang] = $value;
 		}
 	}
 
 
-	public function getValueText(/*$curLang = null*/) {
-		/*if($curLang === null) $curLang = $this->_curLang;*/
-
-		/* альтернатива мультиязычному
-		return @$this->_value; */
-
-		/* мультиязычный вариант */
+	public function getValueText() {
 		return $this->_lang[$this->_curLang];
-		
 	}
 
 
@@ -188,13 +187,6 @@ class FieldMultiLang  extends Field {
 			if($val) $this->_lang[$lang] = $val;
 			next($value);
 		}
-
-		/* альтернатива мультиязычному
-		$lang = $this->_langs;
-		$lang = array_shift($lang);
-		$this->_value = $this->_lang[$lang]; */
-		/* мультиязычный вариант */
-		/*$this->_value = $this->_lang[$this->_curLang];*/
 
 
 		return true;

@@ -13,6 +13,7 @@ class TextMultilangEditor extends FieldMultiLang {
 	 */
 	public function init() {
 		$this->_type = self::TEXT_MULTILANG_EDITOR;
+		$this->setPurifierOptions(__CLASS__);
 
 		parent::init();
 	}

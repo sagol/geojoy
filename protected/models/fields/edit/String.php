@@ -5,7 +5,7 @@ namespace app\models\fields\edit;
 /**
  * Поле строка
  */
-class String extends Field {
+class String extends FieldLang {
 
 
 	/**
@@ -13,6 +13,7 @@ class String extends Field {
 	 */
 	public function init() {
 		$this->_type = self::STRING;
+		$this->setPurifierOptions(__CLASS__);
 
 		parent::init();
 	}

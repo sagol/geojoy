@@ -3,9 +3,9 @@
 namespace app\models\fields\read;
 
 /**
- * Базавое поле мультиязычных полей
+ * Базовый класс мультиязычных полей
  */
-class FieldMultiLang  extends Field {
+class FieldMultiLang  extends FieldLang {
 
 
 	protected $_langs;
